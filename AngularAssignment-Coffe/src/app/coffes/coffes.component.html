@@ -1,7 +1,7 @@
 <div class="card">
   <h5>Implicit Pagination</h5>
   <p-table
-    [value]="customers"
+    [value]="coffees"
     [paginator]="true"
     [rows]="10"
     [showCurrentPageReport]="true"
@@ -11,18 +11,22 @@
   >
     <ng-template pTemplate="header">
       <tr>
+        <th>Id</th>
         <th>Name</th>
-        <th>Country</th>
-        <th>Company</th>
-        <th>Representative</th>
+        <th>Origin</th>
+        <th>Variety</th>
+        <th>Notes</th>
+        <th>Intensifier</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-customer>
+    <ng-template pTemplate="body" let-coffee>
       <tr>
-        <td>{{ customer.name }}</td>
-        <td>{{ customer.country.name }}</td>
-        <td>{{ customer.company }}</td>
-        <td>{{ customer.representative.name }}</td>
+        <td>{{ coffee.id }}</td>
+        <td>{{ coffee.blend_name }}</td>
+        <td>{{ coffee.origin }}</td>
+        <td>{{ coffee.variety }}</td>
+        <td>{{ coffee.notes }}</td>
+        <td>{{ coffee.intensifier }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="paginatorleft">

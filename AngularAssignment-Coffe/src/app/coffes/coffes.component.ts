@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ICoffee } from '../models/coffee';
+import { CoffeeService } from '../services/coffee.service';
 
 @Component({
   selector: 'app-coffes',
@@ -6,9 +8,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./coffes.component.scss'],
 })
 export class CoffesComponent implements OnInit {
-  constructor() {}
+  coffees: ICoffee[] = [];
 
-  customers: any[] = [];
+  first = 0;
 
-  ngOnInit(): void {}
+  rows = 10;
+
+  constructor(private coffeeService: CoffeeService) {}
+
+  ngOnInit() {
+    this.coffeeService.getCoffees().subscribe((data) => (this.coffees = data));
+  }
+
+  next() {
+    this.first = this.first + this.rows;
+  }
+
+  prev() {
+    this.first = this.first - this.rows;
+  }
+
+  reset() {
+    this.first = 0;
+  }
+
+  isLastPage(): boolean {
+    return this.coffees ? this.first === this.coffees.length - this.rows : true;
+  }
+
+  isFirstPage(): boolean {
+    return this.coffees ? this.first === 0 : true;
+  }
 }
