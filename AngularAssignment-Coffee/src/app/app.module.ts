@@ -7,11 +7,11 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 
 import { AppComponent } from './app.component';
-import { CoffesComponent } from './coffes/coffes.component';
+import { CoffeesComponent } from './coffees/coffees.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, CoffesComponent],
+  declarations: [AppComponent, CoffeesComponent],
   imports: [
     BrowserModule,
     TableModule,

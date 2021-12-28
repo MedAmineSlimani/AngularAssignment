@@ -3,11 +3,11 @@ import { ICoffee } from '../models/coffee';
 import { CoffeeService } from '../services/coffee.service';
 
 @Component({
-  selector: 'app-coffes',
-  templateUrl: './coffes.component.html',
-  styleUrls: ['./coffes.component.scss'],
+  selector: 'app-coffees',
+  templateUrl: './coffees.component.html',
+  styleUrls: ['./coffees.component.scss'],
 })
-export class CoffesComponent implements OnInit {
+export class CoffeesComponent implements OnInit {
   coffees: ICoffee[] = [];
 
   first = 0;
