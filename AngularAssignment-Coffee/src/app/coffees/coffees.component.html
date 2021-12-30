@@ -1,5 +1,4 @@
 <div class="card">
-  <h5>Implicit Pagination</h5>
   <p-table
     [value]="coffees"
     [paginator]="true"
@@ -19,7 +18,7 @@
         <th>Intensifier</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-coffee>
+    <ng-template pTemplate="body" let-coffee of coffees$ | async>
       <tr>
         <td>{{ coffee.id }}</td>
         <td>{{ coffee.blend_name }}</td>
@@ -28,20 +27,6 @@
         <td>{{ coffee.notes }}</td>
         <td>{{ coffee.intensifier }}</td>
       </tr>
-    </ng-template>
-    <ng-template pTemplate="paginatorleft">
-      <p-button
-        type="button"
-        icon="pi pi-plus"
-        styleClass="p-button-text"
-      ></p-button>
-    </ng-template>
-    <ng-template pTemplate="paginatorright">
-      <p-button
-        type="button"
-        icon="pi pi-cloud"
-        styleClass="p-button-text"
-      ></p-button>
     </ng-template>
   </p-table>
 </div>
