@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { ICoffee } from '../models/coffee';
-import { CoffeeService } from '../services/coffee.service';
 import { getCoffees } from '../store/actions/coffee.actions';
 import { CoffeeState } from '../store/reducers/coffee.reducers';
+import { coffeeSelector } from '../store/selector/coffee.selector';
 
 @Component({
   selector: 'app-coffees',
@@ -12,7 +12,7 @@ import { CoffeeState } from '../store/reducers/coffee.reducers';
 })
 export class CoffeesComponent implements OnInit {
   coffees: ICoffee[] = [];
-  coffees$ = this.store.select('coffees');
+  coffees$ = this.store.pipe(select(coffeeSelector));
 
   first = 0;
 
@@ -21,9 +21,7 @@ export class CoffeesComponent implements OnInit {
   constructor(private store: Store<CoffeeState>) {}
 
   ngOnInit() {
-    //this.coffeeService.getCoffees().subscribe((data) => (this.coffees = data));
     this.store.dispatch(getCoffees());
-    console.log(this.coffees$);
     this.coffees$.subscribe((data) => (this.coffees = data));
   }
 

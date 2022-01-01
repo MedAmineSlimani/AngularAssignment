@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CoffeesComponent } from './coffees.component';
+import { StoreModule } from '@ngrx/store';
+import { coffeeReducer } from '../store/reducers/coffee.reducers';
 
 describe('CoffesComponent', () => {
   let component: CoffeesComponent;
@@ -8,6 +10,7 @@ describe('CoffesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [StoreModule.forRoot({ coffees: coffeeReducer })],
       declarations: [CoffeesComponent],
     }).compileComponents();
   });

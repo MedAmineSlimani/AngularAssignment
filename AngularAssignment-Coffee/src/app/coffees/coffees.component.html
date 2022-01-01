@@ -1,32 +1,60 @@
-<div class="card">
-  <p-table
-    [value]="coffees"
-    [paginator]="true"
-    [rows]="10"
-    [showCurrentPageReport]="true"
-    responsiveLayout="scroll"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [rowsPerPageOptions]="[10, 25, 50]"
-  >
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Origin</th>
-        <th>Variety</th>
-        <th>Notes</th>
-        <th>Intensifier</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-coffee of coffees$ | async>
-      <tr>
-        <td>{{ coffee.id }}</td>
-        <td>{{ coffee.blend_name }}</td>
-        <td>{{ coffee.origin }}</td>
-        <td>{{ coffee.variety }}</td>
-        <td>{{ coffee.notes }}</td>
-        <td>{{ coffee.intensifier }}</td>
-      </tr>
-    </ng-template>
-  </p-table>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Coffees List</title>
+  </head>
+  <body>
+    <div class="testbox">
+      <form action="/">
+        <div class="banner">
+          <h1>Coffees List</h1>
+        </div>
+        <div class="card">
+          <p-table
+            [value]="coffees"
+            [paginator]="true"
+            [rows]="10"
+            [showCurrentPageReport]="true"
+            responsiveLayout="scroll"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[10, 25, 50]"
+          >
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Origin</th>
+                <th>Variety</th>
+                <th>Notes</th>
+                <th>Intensifier</th>
+                <th>Action</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-coffee of coffees$ | async>
+              <tr>
+                <td>{{ coffee.id }}</td>
+                <td>{{ coffee.blend_name }}</td>
+                <td>{{ coffee.origin }}</td>
+                <td>{{ coffee.variety }}</td>
+                <td>{{ coffee.notes }}</td>
+                <td>{{ coffee.intensifier }}</td>
+                <td>
+                  <button
+                    pButton
+                    pRipple
+                    type="button"
+                    label="Details"
+                    routerLink="/coffee/{{ coffee.id }}"
+                    routerLinkActive="router-link-active"
+                    class="p-button-outlined p-button-secondary"
+                  ></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+<router-outlet></router-outlet>

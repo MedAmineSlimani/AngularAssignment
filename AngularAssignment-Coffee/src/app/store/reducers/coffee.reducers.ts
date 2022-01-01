@@ -5,7 +5,7 @@ import { getCoffees, getCoffeesSuccess } from '../actions/coffee.actions';
 export interface CoffeeState {
   coffees: ICoffee[];
 }
-const initialState: ICoffee[] = [];
+const initialState: ReadonlyArray<ICoffee> = [];
 export const coffeeReducer = createReducer(
   initialState,
   on(getCoffeesSuccess, (state, { coffees }) => [...coffees])

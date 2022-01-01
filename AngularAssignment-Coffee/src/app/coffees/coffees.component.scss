@@ -1,0 +1,49 @@
+body {
+  min-height: 100%;
+}
+label {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 13px;
+  color: #666;
+  line-height: 22px;
+}
+h1 {
+  position: absolute;
+  margin: 0;
+  line-height: 50px;
+  font-size: 50px;
+  color: #fff;
+  z-index: 2;
+}
+.testbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+form {
+  width: 100%;
+  padding: 20px;
+  border-radius: 6px;
+  background: rgb(82, 45, 45);
+}
+.banner {
+  position: relative;
+  height: 320px;
+  background-image: url("/assets/rsz_2kisspng-single-origin-coffee-cafe-cream-coffee-bean-coffee-beans-5ab4c8cb1762537543283915217973230958.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.banner::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
