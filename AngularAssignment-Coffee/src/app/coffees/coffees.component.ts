@@ -36,12 +36,4 @@ export class CoffeesComponent implements OnInit {
   reset() {
     this.first = 0;
   }
-
-  isLastPage(): boolean {
-    return this.coffees ? this.first === this.coffees.length - this.rows : true;
-  }
-
-  isFirstPage(): boolean {
-    return this.coffees ? this.first === 0 : true;
-  }
 }
