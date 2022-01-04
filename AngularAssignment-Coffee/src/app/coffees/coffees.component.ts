@@ -14,26 +14,10 @@ export class CoffeesComponent implements OnInit {
   coffees: ICoffee[] = [];
   coffees$ = this.store.pipe(select(coffeeSelector));
 
-  first = 0;
-
-  rows = 10;
-
   constructor(private store: Store<CoffeeState>) {}
 
   ngOnInit() {
     this.store.dispatch(getCoffees());
     this.coffees$.subscribe((data) => (this.coffees = data));
-  }
-
-  next() {
-    this.first = this.first + this.rows;
-  }
-
-  prev() {
-    this.first = this.first - this.rows;
-  }
-
-  reset() {
-    this.first = 0;
   }
 }
