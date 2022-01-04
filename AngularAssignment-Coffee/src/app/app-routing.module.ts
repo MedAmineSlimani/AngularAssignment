@@ -7,7 +7,6 @@ import { CoffeesComponent } from './coffees/coffees.component';
 
 const routes: Routes = [
   { path: '', component: CoffeesComponent },
-  { path: 'coffee', component: DetailsComponent },
   { path: 'coffee/:id', component: DetailsComponent },
 ];
 @NgModule({

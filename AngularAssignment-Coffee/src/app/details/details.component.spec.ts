@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
 import { coffeeReducer } from '../store/reducers/coffee.reducers';
-import { ActivatedRoute } from '@angular/router';
 import { DetailsComponent } from './details.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';

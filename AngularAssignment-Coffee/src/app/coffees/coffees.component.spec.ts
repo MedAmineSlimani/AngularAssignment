@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CoffeesComponent } from './coffees.component';
 import { StoreModule } from '@ngrx/store';
 import { coffeeReducer } from '../store/reducers/coffee.reducers';
